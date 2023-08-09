@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    while (1) { // Infinite loop
+        int num1, num2;
+
+        printf("Enter two numbers (or press Ctrl+C to exit):\n");
+        scanf("%d %d", &num1, &num2);
+
+        int sum = num1 + num2;
+
+        printf("Summation: %d + %d = %d\n", num1, num2, sum);
+    }
+
+    return 0;
+}

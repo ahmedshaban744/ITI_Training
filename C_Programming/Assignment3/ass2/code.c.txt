@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    const char *username;
+    const char *password;
+} User;
+
+int main() {
+    User users[] = {
+        {"Ahmed", "1234"},
+        {"Amr", "5678"},
+        {"Wael", "9870"}
+    };
+
+    char enteredID[20];
+    char enteredPassword[20];
+
+    printf("Enter your ID: ");
+    scanf("%s", enteredID);
+
+    int userIndex = -1; // Index of the entered ID in the users array
+
+    // Check if the entered ID is correct
+    for (int i = 0; i < sizeof(users) / sizeof(users[0]); i++) {
+        if (strcmp(enteredID, users[i].username) == 0) {
+            userIndex = i;
+            break;
+        }
+    }
+
+    if (userIndex == -1) {
+        printf("You are not registered\n");
+        return 0;
+    }
+
+    for (int tries = 0; tries < 3; tries++) {
+        printf("Enter your password (attempt %d): ", tries + 1);
+        scanf("%s", enteredPassword);
+
+        // Check if the entered password is correct
+        if (strcmp(enteredPassword, users[userIndex].password) == 0) {
+            printf("Welcome, %s!\n", users[userIndex].username);
+            return 0;
+        }
+    }
+
+    printf("No more tries.\n");
+
+    return 0;
+}
