@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define valid IDs and corresponding passwords
+#define NUM_USERS 3
+const char *validIDs[NUM_USERS] = {"user1", "user2", "user3"};
+const char *validPasswords[NUM_USERS] = {"pass1", "pass2", "pass3"};
+const char *userNames[NUM_USERS] = {"User One", "User Two", "User Three"};
+
+int main() {
+    char enteredID[20];
+    printf("Enter your ID: ");
+    scanf("%s", enteredID);
+
+    int userID = -1; // Index of the entered ID in the validIDs array
+
+    // Check if the entered ID is valid
+    for (int i = 0; i < NUM_USERS; i++) {
+        if (strcmp(enteredID, validIDs[i]) == 0) {
+            userID = i;
+            break;
+        }
+    }
+
+    if (userID == -1) {
+        printf("Incorrect ID.\n");
+        return 0;
+    }
+
+    char enteredPassword[20];
+    printf("Enter your password: ");
+    scanf("%s", enteredPassword);
+
+    // Check if the entered password is correct
+    if (strcmp(enteredPassword, validPasswords[userID]) == 0) {
+        printf("Welcome, %s!\n", userNames[userID]);
+    } else {
+        printf("Incorrect Password.\n");
+    }
+
+    return 0;
+}
