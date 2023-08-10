@@ -1,0 +1,146 @@
+#include <stdio.h>
+
+// Function to perform addition
+double add(double a, double b) {
+    return a + b;
+}
+
+// Function to perform subtraction
+double subtract(double a, double b) {
+    return a - b;
+}
+
+// Function to perform multiplication
+double multiply(double a, double b) {
+    return a * b;
+}
+
+// Function to perform division
+double divide(double a, double b) {
+    if (b != 0) {
+        return a / b;
+    } else {
+        printf("Error: Division by zero\n");
+        return 0.0; // Return a default value
+    }
+}
+
+// Function to perform logical AND
+int logicalAnd(int a, int b) {
+    return a && b;
+}
+
+// Function to perform logical OR
+int logicalOr(int a, int b) {
+    return a || b;
+}
+
+// Function to perform logical NOT
+int logicalNot(int a) {
+    return !a;
+}
+
+// Function to perform bitwise XOR
+int bitwiseXor(int a, int b) {
+    return a ^ b;
+}
+
+// Function to perform remainder
+int remainder(int a, int b) {
+    return a % b;
+}
+
+// Function to perform increment
+int increment(int a) {
+    return a + 1;
+}
+
+// Function to perform decrement
+int decrement(int a) {
+    return a - 1;
+}
+
+int main() {
+    int operation;
+    
+    printf("Calculator Operations:\n");
+    printf("1. Add\n");
+    printf("2. Subtract\n");
+    printf("3. Multiply\n");
+    printf("4. Divide\n");
+    printf("5. AND\n");
+    printf("6. OR\n");
+    printf("7. NOT\n");
+    printf("8. XOR\n");
+    printf("9. Remainder\n");
+    printf("10. Increment\n");
+    printf("11. Decrement\n");
+    
+    printf("Enter operation ID: ");
+    scanf("%d", &operation);
+
+    double operand1, operand2;
+    int result;
+
+    switch (operation) {
+        case 1:
+            printf("Enter two operands: ");
+            scanf("%lf %lf", &operand1, &operand2);
+            printf("Result: %.2lf\n", add(operand1, operand2));
+            break;
+        case 2:
+            printf("Enter two operands: ");
+            scanf("%lf %lf", &operand1, &operand2);
+            printf("Result: %.2lf\n", subtract(operand1, operand2));
+            break;
+        case 3:
+            printf("Enter two operands: ");
+            scanf("%lf %lf", &operand1, &operand2);
+            printf("Result: %.2lf\n", multiply(operand1, operand2));
+            break;
+        case 4:
+            printf("Enter two operands: ");
+            scanf("%lf %lf", &operand1, &operand2);
+            printf("Result: %.2lf\n", divide(operand1, operand2));
+            break;
+        case 5:
+            printf("Enter two operands (0 or 1): ");
+            scanf("%d %d", &result, &result);
+            printf("Result: %d\n", logicalAnd(result, result));
+            break;
+        case 6:
+            printf("Enter two operands (0 or 1): ");
+            scanf("%d %d", &result, &result);
+            printf("Result: %d\n", logicalOr(result, result));
+            break;
+        case 7:
+            printf("Enter one operand (0 or 1): ");
+            scanf("%d", &result);
+            printf("Result: %d\n", logicalNot(result));
+            break;
+        case 8:
+            printf("Enter two operands (0 or 1): ");
+            scanf("%d %d", &result, &result);
+            printf("Result: %d\n", bitwiseXor(result, result));
+            break;
+        case 9:
+            printf("Enter two operands: ");
+            scanf("%d %d", &result, &result);
+            printf("Result: %d\n", remainder(result, result));
+            break;
+        case 10:
+            printf("Enter one operand: ");
+            scanf("%d", &result);
+            printf("Result: %d\n", increment(result));
+            break;
+        case 11:
+            printf("Enter one operand: ");
+            scanf("%d", &result);
+            printf("Result: %d\n", decrement(result));
+            break;
+        default:
+            printf("Invalid operation ID\n");
+    }
+
+    return 0;
+}

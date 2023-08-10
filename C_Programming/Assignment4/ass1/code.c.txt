@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int getMax(int a, int b, int c, int d) {
+    int max = a;
+    if (b > max) max = b;
+    if (c > max) max = c;
+    if (d > max) max = d;
+    return max;
+}
+
+int getMin(int a, int b, int c, int d) {
+    int min = a;
+    if (b < min) min = b;
+    if (c < min) min = c;
+    if (d < min) min = d;
+    return min;
+}
+
+int main() {
+    int num1, num2, num3, num4;
+
+    printf("Enter the first number: ");
+    scanf("%d", &num1);
+
+    printf("Enter the second number: ");
+    scanf("%d", &num2);
+
+    printf("Enter the third number: ");
+    scanf("%d", &num3);
+
+    printf("Enter the fourth number: ");
+    scanf("%d", &num4);
+
+    int maximum = getMax(num1, num2, num3, num4);
+    int minimum = getMin(num1, num2, num3, num4);
+
+    printf("Maximum number: %d\n", maximum);
+    printf("Minimum number: %d\n", minimum);
+
+    return 0;
+}
