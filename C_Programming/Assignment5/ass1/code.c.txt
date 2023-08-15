@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int values[10];
+    
+    printf("Enter 10 values:\n");
+    
+    // Input loop to fill the array
+    for (int i = 0; i < 10; i++) {
+        printf("Enter value %d: ", i + 1);
+        scanf("%d", &values[i]);
+    }
+
+    // Finding minimum and maximum
+    int minimum = values[0];
+    int maximum = values[0];
+    
+    for (int i = 1; i < 10; i++) {
+        if (values[i] < minimum) {
+            minimum = values[i];
+        }
+        if (values[i] > maximum) {
+            maximum = values[i];
+        }
+    }
+
+    printf("Minimum value: %d\n", minimum);
+    printf("Maximum value: %d\n", maximum);
+
+    return 0;
+}
