@@ -1,0 +1,56 @@
+/*
+ * ATMEGA_32.c
+ *
+ * Created: 8/16/2023 3:42:38 PM
+ * Author : Ahmed shaban
+ */ 
+
+#include <avr/io.h>
+#include <util/delay.h>
+#define F_CPU 8000000UL
+#include "bit_prosess.h"
+
+
+
+
+int main(void)
+
+{
+	static unsigned char segment_number[]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+	
+PORTA=0b00000111;
+PORTB=0xff;
+	
+		
+
+    while (1) 
+    {
+	SET_BIT(DDRA,DDA0);
+	
+	for(int i=0 ;i<9; i++)
+	{
+  DDRB=segment_number[i];
+  _delay_ms(700);
+	}
+	CLR_BIT(DDRA,DDA0)	;
+	
+	SET_BIT(DDRA,DDA1);
+	for(int i=0 ;i<3; i++)
+	{
+		DDRB=segment_number[i];
+		_delay_ms(700);
+	}
+	CLR_BIT(DDRA,DDA1)	;
+		
+	SET_BIT(DDRA,DDA2);
+	for(int i=0 ;i<9; i++)
+	{
+		DDRB=segment_number[i];
+		_delay_ms(700);
+	}
+	CLR_BIT(DDRA,DDA3)	;
+		
+
+    }
+
+}
